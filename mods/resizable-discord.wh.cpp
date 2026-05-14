@@ -10,6 +10,11 @@
 
 // ==WindhawkModReadme==
 /*
+
+## Features
+ - fixes resizing
+ - fixes maximize box
+
 This mod forces resizing on Discord when using window transparency + native titlebar.
 
 How it works: It hooks ShowWindow to enable WS_THICKFRAME, which Discord 
@@ -18,6 +23,12 @@ the resize logic through software. When Vencord turns on custom titlebar, it doe
 set WS_THICKFRAME, so the window is not resizable. This mod fixes that.
 
 ![Image showing resizable cursor on border](https://i.imgur.com/GNRdQ5A.png)
+
+It also restores the maximize box functionality. It does this by
+hooking DispatchMessageW, which lets us see every incoming message.
+If it sees WM_NCLBUTTONDOWN with HTMAXBUTTON, which means the user clicked
+the maximize button in the window's title bar, it maximizes the window.
+
 */
 // ==/WindhawkModReadme==
 
